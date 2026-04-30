@@ -1,0 +1,34 @@
+=========================================================
+PRESENTATION SCRIPT: FLUTTER UI SLICING (BALI TRAVEL APP)
+=========================================================
+Duration: ~3-5 Minutes
+
+[SCENE 1: INTRODUCTION]
+"Hello everyone! My name is [Your Name]. Today I'm going to present my UI Slicing project using Flutter. 
+This project focuses on fundamental widget layout concepts like Column, Row, ListView, Stack, and making a responsive structure. The app I built is a mockup of a 'Bali Travel' application. Let's take a look!"
+
+[SCENE 2: APP DEMONSTRATION]
+(Show emulator/device screen)
+"When we open the app, we are greeted with a full-screen Splash Screen. Clicking the 'Explore' button takes us to the Home Screen.
+Here we have a Header, a Search Bar, a scrollable Category list, and two main sections: Popular and Recommended destinations. The lists scroll horizontally without any overflow issues. 
+If we click on a destination, we navigate to the Detail Screen. You can see the details scroll nicely, while the price and 'Book Now' button remain fixed at the bottom."
+
+[SCENE 3: CODE - SPLASH SCREEN]
+(Open splash_screen.dart)
+"Let's look at the Splash Screen code. I used a 'Stack' widget to layer multiple elements: the background image at the bottom, a dark gradient overlay for text readability, and the App Title on top. The 'Positioned' widget helps me place the text and the 'Explore' button exactly where I want them at the bottom."
+
+[SCENE 4: CODE - HOME SCREEN]
+(Open home_screen.dart)
+"For the Home Screen, I wrapped everything in a 'SingleChildScrollView' to make the entire page vertically scrollable. 
+For horizontal elements like the Popular and Recommended cards, I used 'ListView' with 'scrollDirection: Axis.horizontal'. 
+I also used 'Row' widgets to align the header text and 'Column' widgets to stack elements vertically. Spacing is handled cleanly using 'SizedBox' and 'Padding'."
+
+[SCENE 5: CODE - DETAIL SCREEN]
+(Open detail_screen.dart)
+"Finally, in the Detail Screen, the most important concept is using 'Expanded'. 
+I split the layout into a 'Column'. The top is the fixed image, the middle is an 'Expanded' widget containing a 'ListView' for the scrollable content, and the bottom is the fixed action bar. Because 'Expanded' takes up all remaining space, it pushes the 'Book Now' button to stick securely to the bottom of the screen."
+
+[SCENE 6: CONCLUSION]
+"To summarize, mastering basic widgets like Row, Column, Stack, and Expanded is crucial for building clean and responsive layouts in Flutter. 
+Thank you for your time and attention!"
+=========================================================

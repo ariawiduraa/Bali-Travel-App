@@ -1,41 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:bali_travel/screens/home_screen.dart';
-// Import layar home Anda nanti di sini
+import 'home_screen.dart';
 
 class SplashScreen extends StatelessWidget {
+  const SplashScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
-        fit: StackFit.expand,
         children: [
-          // 1. Gambar Latar Belakang
-          Image.asset('assets/images/Bali.jpg', fit: BoxFit.cover),
-
-          // 2. Teks Judul (Aspen) di atas
+          // Background Image
+          SizedBox.expand(
+            child: Image.asset(
+              'assets/images/Bali.jpg',
+              fit: BoxFit.cover,
+            ),
+          ),
+          
+          // App Title
           Positioned(
             top: 100,
             left: 0,
             right: 0,
-            child: Center(
-              child: Text(
-                'Bali \n Travel',
-                textAlign:TextAlign.center,
-                style: GoogleFonts.caveat(
-                  // Contoh font script
-                  fontSize: 80,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-
-                ),
+            child: Text(
+              'Bali\nTravel',
+              textAlign: TextAlign.center,
+              style: GoogleFonts.caveat(
+                fontSize: 60,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
               ),
             ),
           ),
-
-          // 3. Konten Bawah (Teks & Tombol)
+          
+          // Tagline
           Positioned(
-            bottom: 40,
+            bottom: 60,
             left: 30,
             right: 30,
             child: Column(
@@ -43,39 +44,47 @@ class SplashScreen extends StatelessWidget {
               children: [
                 Text(
                   'Plan your',
-                  style: GoogleFonts.montserrat(
+                  style: GoogleFonts.roboto(
                     fontSize: 24,
-                    color: Colors.white,
+                    color: Colors.white70,
                   ),
                 ),
                 Text(
                   'Luxurious\nVacation',
-                  style: GoogleFonts.montserrat(
+                  style: GoogleFonts.roboto(
                     fontSize: 40,
-                    color: Colors.white,
                     fontWeight: FontWeight.bold,
-                    height: 1.2,
+                    color: Colors.white,
                   ),
                 ),
-                SizedBox(height: 24),
-                // Tombol Explore
+
+                // Explore Button
+                const SizedBox(height: 30),
                 SizedBox(
                   width: double.infinity,
-                  height: 50,
+                  height: 55,
                   child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const HomeScreen(),
+                        ),
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blueAccent, // Warna tombol
+                      backgroundColor: Colors.blueAccent,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
+                        borderRadius: BorderRadius.circular(30),
                       ),
                     ),
-                    onPressed: () {
-                      // Navigasi ke Layar Home
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
-                    },
                     child: Text(
                       'Explore',
-                      style: TextStyle(fontSize: 18, color: Colors.white),
+                      style: GoogleFonts.roboto(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),
